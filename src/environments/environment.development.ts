@@ -1,8 +1,8 @@
 export const environment = {
 api:{
 
-    classifications:""
-//Escribir entornos
+    classifications:"http://localhost:2000/api/v1/classifications"
+
 
 }
 };
