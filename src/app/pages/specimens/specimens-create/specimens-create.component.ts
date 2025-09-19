@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router, RouterModule } from '@angular/router';
 import { SpecimensService } from '../../../services/specimens/specimens.service';
 import { BooksService } from '../../../services/books.service';
+import { Books } from '../../../interfaces/books.model';
 
 @Component({
   selector: 'app-specimens-create',
@@ -13,6 +14,7 @@ import { BooksService } from '../../../services/books.service';
 })
 export class SpecimensCreateComponent {
   specimenForm!:FormGroup;
+  books:Books[]=[];
 
   constructor(
     private readonly specimenService: SpecimensService,
@@ -24,10 +26,19 @@ export class SpecimensCreateComponent {
   ngOnInit():void{
     this.specimenForm=this.formBuilder.group({
       price:['',[Validators.required, Validators.min(50)]],
+      condition:['',[Validators.required, Validators.minLength(1)]],
+      observation: ['', [Validators.required, Validators.minLength(1)]],
       booksId:['',[Validators.required]],
-      condition:['',[Validators.required, Validators.minLength(30)]],
-      observation: ['', [Validators.minLength(1)]]
     });
+
+this.booksService.getBooks().subscribe({
+    next:(data)=>{
+      this.books = data;
+    },
+    error:(err)=>{
+      console.error('Errpr al obtener el libro', err);
+    }
+});
 
   }
 
