@@ -1,5 +1,27 @@
+<div class="card-body">
+  <br />
 
+  <table class="min-w-full border border-gray-300 rounded-lg overflow-hidden" id="tb_listado">
+    <thead class="bg-gray-100">
+      <tr class="text-center text-sm font-semibold text-gray-700">
+        <th class="w-40 py-2"></th>
+        <th class="py-2">Id</th>
+        <th class="py-2">Nombre</th>
+        <th class="py-2">Descripción</th>
+        <th class="text-left py-2">Acciones</th>
+      </tr>
+    </thead>
 
-
-
-<p>category works!</p>
+    <tbody class="divide-y divide-gray-200">
+      <tr *ngFor="let catego of category"
+          class="odd:bg-white even:bg-gray-50 hover:bg-gray-100">
+        <td class="px-3 py-2 text-center">{{ catego.id }}</td>
+        <td class="px-3 py-2">{{ catego.name }}</td>
+        <td class="px-3 py-2">{{ catego.description }}</td>
+        <td class="px-3 py-2 text-left">
+          <!-- tus botones -->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
