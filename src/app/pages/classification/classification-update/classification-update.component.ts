@@ -28,8 +28,8 @@ export class ClassificationUpdateComponent {
 
     this.classificationForm = this.fb.group({
       name:['',[Validators.required, Validators.minLength(15)]],
-      description:['',Validators.required, Validators.minLength(25)],
-      code:['',Validators.required, Validators.minLength(5)]
+      description:['',[Validators.required, Validators.minLength(25)]],
+      code:['',[Validators.required, Validators.minLength(5)]]
     });
 
     this.loadClassificationData();
@@ -39,7 +39,7 @@ export class ClassificationUpdateComponent {
   loadClassificationData(){
     this.classificationService.getById(this.classificationId).subscribe(data=>{
         this.classificationData = data;
-        this.classificationForm.setValue({
+        this.classificationForm.patchValue({
           name:data.name,
           description:data.description,
           code:data.code
@@ -48,8 +48,9 @@ export class ClassificationUpdateComponent {
   }
 
   updateClassification(){
+    
     if(this.classificationForm.invalid){
-      return;
+     //return;
     }
     
     const updateClassification: Classification={

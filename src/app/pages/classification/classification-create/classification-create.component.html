@@ -36,8 +36,8 @@
         <input type="text" id="code" formControlName="code"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
              />
-              <div *ngIf="classificationForm.get('description')?.invalid && classificationForm.get('name')?.touched">
-            <small *ngIf="classificationForm.get('description')?.errors?.['required']" class="text-red-500">El código es necesario</small>
+              <div *ngIf="classificationForm.get('code')?.invalid && classificationForm.get('name')?.touched">
+            <small *ngIf="classificationForm.get('code')?.errors?.['required']" class="text-red-500">El código es necesario</small>
 
         </div>
     </div>
