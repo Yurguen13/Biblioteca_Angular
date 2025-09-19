@@ -17,7 +17,7 @@ export class SpecimensCreateComponent {
     private readonly specimenService: SpecimensService,
     private readonly formBuilder: FormBuilder,
     private readonly router:Router,
-    private readonly booksService: BooksService
+/*     private readonly booksService: BooksService */
   ){}
 
   ngOnInit():void{
