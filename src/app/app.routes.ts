@@ -20,6 +20,12 @@ import { BooksDeleteComponent } from './pages/books/books-delete/books-delete.co
 import { BooksUpdateComponent } from './pages/books/books-update/books-update.component';
 import { BooksCreateComponent } from './pages/books/books-create/books-create.component';
 import { AuthorComponent } from './pages/author/author.component';
+import { SpecimensUpdateComponent } from './pages/specimens/specimens-update/specimens-update.component';
+import { SpecimensDeleteComponent } from './pages/specimens/specimens-delete/specimens-delete.component';
+import { PublishersListComponent } from './pages/publishers/publishers-list/publishers-list.component';
+import { PublishersCreateComponent } from './pages/publishers/publishers-create/publishers-create.component';
+import { PublishersUpdateComponent } from './pages/publishers/publishers-update/publishers-update.component';
+import { PublishersDeleteComponent } from './pages/publishers/publishers-delete/publishers-delete.component';
 
 export const routes: Routes = [
 
@@ -110,8 +116,32 @@ export const routes: Routes = [
     path: 'books/delete/:id',
     component: BooksDeleteComponent
   },
-
-
+{
+  path:'specimens/update/:id',
+  component:SpecimensUpdateComponent
+  },
+  {
+  path:'specimens/delete/:id',
+  component:SpecimensDeleteComponent
+  },
+  {
+  path:'publishers',
+  component:PublishersListComponent
+  } ,
+  {
+  path:'publishers/create',
+  component:PublishersCreateComponent
+  }
+  ,
+  {
+  path:'publishers/update/:id',
+  component:PublishersUpdateComponent
+  }
+  ,
+  {
+  path:'publishers/delete/:id',
+  component:PublishersDeleteComponent
+  }
 
 
 ];
