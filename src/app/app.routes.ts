@@ -19,6 +19,7 @@ import { BooksComponent } from './pages/books/books.component';
 import { BooksDeleteComponent } from './pages/books/books-delete/books-delete.component';
 import { BooksUpdateComponent } from './pages/books/books-update/books-update.component';
 import { BooksCreateComponent } from './pages/books/books-create/books-create.component';
+import { AuthorComponent } from './pages/author/author.component';
 
 export const routes: Routes = [
 
@@ -65,7 +66,50 @@ export const routes: Routes = [
     {
   path:'specimens/create',
   component:SpecimensCreateComponent
-  }
+  },
+
+
+  {
+    path: 'author',
+    component: AuthorComponent
+  },
+
+  {
+    path: 'author/create',
+    component: AuthorCreateComponent
+  },
+
+  {
+    path: 'author/update/:id',
+    component: AuthorUpdateComponent
+  },
+
+   {
+    path: 'author/delete/:id',
+    component: AuthorDeleteComponent
+  },
+
+  
+
+  {
+    path: 'books',
+    component: BooksComponent
+  },
+
+  {
+    path: 'books/create',
+    component: BooksCreateComponent
+  },
+
+  {
+    path: 'books/update/:id',
+    component: BooksUpdateComponent
+  },
+
+   {
+    path: 'books/delete/:id',
+    component: BooksDeleteComponent
+  },
 
 
 
