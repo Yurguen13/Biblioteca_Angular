@@ -1,1 +1,79 @@
-<p>publishers-list works!</p>
+<div class="max-w-6xl mx-auto bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+
+    <div class="px-5 py-4 border-b border-gray-200 flex items-center justify-between">
+        <h2 class="text-lg font-semibold text-gray-800">Listado</h2>
+        <!-- Acciones opcionales -->
+        <div class="flex gap-2">
+            <button routerLink="/publishers/create" class="px-3 py-2 text-sm rounded-lg border border-gray-300 hover:bg-gray-50" > <i class="fa-solid fa-plus"></i> Nueva
+            Editorial</button>
+        </div>
+    </div>
+
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+
+        <div class="p-5 overflow-x-auto">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Id
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Nombre
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Ciudad
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                                Pais
+                        </th>
+                          <th scope="col" class="px-6 py-3">
+                                Telefono
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let publisher of publishers"
+                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{ publishers }}
+                        </th>
+                            <td class="px-6 py-4">
+                            {{ publisher.id }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ publisher.name }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ publisher.city}}
+                        </td>
+                          <td class="px-6 py-4">
+                            {{ publisher.country }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ publisher.phone }}
+                        </td>
+
+                        <td class="px-3 py-2">
+                            <div class="flex items-center justify-end gap-2">
+                                <a [routerLink]="['/publishers/update', publisher.id]"
+                                    class="inline-flex items-center px-3 py-1.5 text-sm rounded-lg border border-indigo-200 text-indigo-700 hover:bg-indigo-50">
+                                  <i class="fa-solid fa-trash"></i>  Editar
+                                </a>
+
+                                <button type="button" [routerLink]="['/publishers/delete', publisher.id]"
+                                    class="inline-flex items-center px-3 py-1.5 text-sm rounded-lg border border-red-200 text-red-700 hover:bg-red-50">
+                                  <i class="fa-solid fa-trash"></i>   Eliminar
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
