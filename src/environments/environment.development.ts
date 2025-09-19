@@ -1,1 +1,8 @@
-export const environment = {};
+export const environment = {
+api:{
+
+    classifications:""
+//Escribir entornos
+
+}
+};
