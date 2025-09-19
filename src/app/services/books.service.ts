@@ -24,10 +24,14 @@ export class BooksService {
   }
  
   
-  public updateBook(id:number, boo: Books): Observable<Books>
-  {
-    return this.http.put<Books>(`${environment.api.books}/${id}`, boo);
-  }
+public updateBook(id: number, formData: FormData): Observable<void> {
+  console.log("el id es");
+  console.log(id);
+
+  const url = `${environment.api.books}/${id}`;
+console.log('PUT URL:', url); 
+  return this.http.put<void>(`${environment.api.books}/${id}`, formData);
+}
 
     public getById(id: number): Observable<Books>
   {
