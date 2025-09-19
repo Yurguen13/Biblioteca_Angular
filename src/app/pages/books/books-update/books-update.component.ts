@@ -21,6 +21,7 @@ export class BooksUpdateComponent {
   classification: Classification[]=[];
   imageUrl!:string;
   image!:string;
+     selectedFile!: File;
 
   constructor(
     private route: ActivatedRoute,  // Para acceder a los parámetros de la URL
@@ -85,21 +86,35 @@ export class BooksUpdateComponent {
 
     
         });
-         this.imageUrl="http://localhost:2000/"+ data.path;
+         this.imageUrl="http://localhost:2000"+ data.path;
     });
   }
 
+
+    onFileSelected(event: any): void {
+    this.selectedFile = event.target.files[0];
+    this.booksForm.patchValue({path: this.selectedFile}); // Actualiza el valor del control logo
+    this.booksForm.get('file')?.updateValueAndValidity(); // Revalida el control logo
+  }
   updateBoook() {
     if (this.booksForm.invalid) {
       return;  // No enviar si el formulario es inválido
     }
 
-    const updatedProduct: Books = {
-      id: this.bookId,
-      ...this.booksForm.value  // Obtener los datos actualizados del formulario
-    };
+    
+     const formData = new FormData();
+    formData.append('name', this.booksForm.get('name')!.value);
+    formData.append('language', this.booksForm.get('language')!.value);
+    formData.append('year', this.booksForm.get('year')!.value);
+    formData.append('publisherId', this.booksForm.get('publisherId')!.value);
+    formData.append('classificationId', this.booksForm.get('classificationId')!.value);
+    formData.append('publisherId', this.booksForm.get('publisherId')!.value);
+    if(this.selectedFile!=null){
+ formData.append('file', this.selectedFile, this.selectedFile.name); 
+    }
+   
 
-    this.booksService.updateBook(this.bookId, updatedProduct).subscribe({
+    this.booksService.updateBook(this.bookId, formData).subscribe({
       next: () => {
         console.log('libro Actualizado');
         this.router.navigate(['/books']);  // Redirigir a la lista de productos
