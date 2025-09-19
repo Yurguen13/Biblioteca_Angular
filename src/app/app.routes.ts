@@ -1,26 +1,28 @@
 import { Routes } from '@angular/router';
 import { CategoryComponent } from './pages/category/category.component';
-import { LayoutComponent } from './layout/layout.component';
+
+import { CategoryCreateComponent } from './pages/category/category-create/category-create.component';
+import { CategoryUpdateComponent } from './pages/category/category-update/category-update.component';
 
 export const routes: Routes = [
 
-{
-    path: '',
-    component: LayoutComponent,   // ← envoltorio
-    children: [
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  {
+    path: 'category',
+    component: CategoryComponent
+  },
 
-      // otras páginas...
-      {
-        path: 'category',
-        title: 'Categorías',
-        loadComponent: () =>
-          import('./pages/category/category.component')
-            .then(m => m.CategoryComponent)
-      },
-    ],
+  {
+    path: 'category/create',
+    component: CategoryCreateComponent
+  },
+
+  {
+    path: 'category/update/:id',
+    component: CategoryUpdateComponent
   },
 
 
-    
+
+
+
 ];
