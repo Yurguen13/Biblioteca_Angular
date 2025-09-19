@@ -11,7 +11,7 @@ import { ClassificationService } from '../../../services/classification/classifi
   templateUrl: './classification-update.component.html',
   styleUrl: './classification-update.component.css'
 })
-class ClassificationUpdateComponent {
+export class ClassificationUpdateComponent {
   private classificationId!: number;
   classificationForm!: FormGroup;
   classificationData!: Classification;
@@ -28,8 +28,8 @@ class ClassificationUpdateComponent {
 
     this.classificationForm = this.fb.group({
       name:['',[Validators.required, Validators.minLength(15)]],
-      description:['',Validators.required, Validators.minLength(25)],
-      code:['',Validators.required, Validators.minLength(5)]
+      description:['',[Validators.required, Validators.minLength(25)]],
+      code:['',[Validators.required, Validators.minLength(5)]]
     });
 
     this.loadClassificationData();
@@ -39,7 +39,7 @@ class ClassificationUpdateComponent {
   loadClassificationData(){
     this.classificationService.getById(this.classificationId).subscribe(data=>{
         this.classificationData = data;
-        this.classificationForm.setValue({
+        this.classificationForm.patchValue({
           name:data.name,
           description:data.description,
           code:data.code
@@ -48,8 +48,9 @@ class ClassificationUpdateComponent {
   }
 
   updateClassification(){
+    
     if(this.classificationForm.invalid){
-      return;
+     //return;
     }
     
     const updateClassification: Classification={

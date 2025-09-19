@@ -22,16 +22,18 @@ export class ClassificationCreateComponent {
   ngOnInit():void{
     this.classificationForm= this.formBuilder.group({
       name:['',[Validators.required, Validators.minLength(15)]],
-      description:['',Validators.required, Validators.minLength(25)],
-      code:['',Validators.required, Validators.minLength(5)]
+      description:['',[Validators.required, Validators.minLength(25)]],
+      code:['',[Validators.required, Validators.minLength(5)]]
     });
   }
 
   sendForm(){
+    debugger;
     this.classificationForm.markAllAsTouched();
+    console.log("prueba");
 
     if(this.classificationForm.invalid){
-      return;
+    //  return;
     }
 
     const classificationData=this.classificationForm.value;
