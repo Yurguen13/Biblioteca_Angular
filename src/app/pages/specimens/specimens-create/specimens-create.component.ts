@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { SpecimensService } from '../../../services/specimens/specimens.service';
+import { BooksService } from '../../../services/books.service';
 
 @Component({
   selector: 'app-specimens-create',
@@ -17,7 +18,7 @@ export class SpecimensCreateComponent {
     private readonly specimenService: SpecimensService,
     private readonly formBuilder: FormBuilder,
     private readonly router:Router,
-    /* private readonly booksService: BooksService */
+    private readonly booksService: BooksService 
   ){}
 
   ngOnInit():void{
