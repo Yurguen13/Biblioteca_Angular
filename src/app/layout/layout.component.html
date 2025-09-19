@@ -32,14 +32,18 @@
                 <div class="hidden sm:ml-6 sm:block">
                     <div class="flex space-x-4">
                         <a routerLink="/"
+                          routerLinkActive="bg-gray-900"
                             class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">Dashboard</a>
                         <a routerLink="/team"
+                          routerLinkActive="bg-gray-900"
                             class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Categorias</a>
                         <a routerLink="/projects"
+                          routerLinkActive="bg-gray-900"
                             class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Libros</a>
                         <a routerLink="/calendar"
+                          routerLinkActive="bg-gray-900"
                             class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Author</a>
-                    </div>
+                    </div> 
                 </div>
             </div>
 
@@ -56,9 +60,4 @@
     </div>
 
     </nav>
-        <main class="p-4">
-            <!-- AQUÍ se inyectan las páginas hijas -->
-
-            <router-outlet></router-outlet>
-            
-        </main>
+    

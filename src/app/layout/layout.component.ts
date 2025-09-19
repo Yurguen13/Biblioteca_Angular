@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterModule,RouterLink } from '@angular/router';
+import { RouterModule,RouterLink, RouterLinkActive } from '@angular/router';
 
 import { CommonModule } from '@angular/common';   
 import {  computed, signal } from '@angular/core';
 
 @Component({
   selector: 'app-layout',
-  imports: [CommonModule,  RouterLink,RouterModule], // <-- a
+  imports: [CommonModule,  RouterLink, RouterLinkActive], // <-- a
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css'
 })

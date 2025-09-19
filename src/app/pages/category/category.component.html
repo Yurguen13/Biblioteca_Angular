@@ -1,27 +1,67 @@
-<div class="card-body">
-  <br />
+<div class="max-w-6xl mx-auto bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
 
-  <table class="min-w-full border border-gray-300 rounded-lg overflow-hidden" id="tb_listado">
-    <thead class="bg-gray-100">
-      <tr class="text-center text-sm font-semibold text-gray-700">
-        <th class="w-40 py-2"></th>
-        <th class="py-2">Id</th>
-        <th class="py-2">Nombre</th>
-        <th class="py-2">Descripción</th>
-        <th class="text-left py-2">Acciones</th>
-      </tr>
-    </thead>
+    <div class="px-5 py-4 border-b border-gray-200 flex items-center justify-between">
+        <h2 class="text-lg font-semibold text-gray-800">Listado</h2>
+        <!-- Acciones opcionales -->
+        <div class="flex gap-2">
+            <button routerLink="/category/create" class="px-3 py-2 text-sm rounded-lg border border-gray-300 hover:bg-gray-50" > <i class="fa-solid fa-plus"></i> Nueva
+                Categoria</button>
+        </div>
+    </div>
 
-    <tbody class="divide-y divide-gray-200">
-      <tr *ngFor="let catego of category"
-          class="odd:bg-white even:bg-gray-50 hover:bg-gray-100">
-        <td class="px-3 py-2 text-center">{{ catego.id }}</td>
-        <td class="px-3 py-2">{{ catego.name }}</td>
-        <td class="px-3 py-2">{{ catego.description }}</td>
-        <td class="px-3 py-2 text-left">
-          <!-- tus botones -->
-        </td>
-      </tr>
-    </tbody>
-  </table>
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+
+        <div class="p-5 overflow-x-auto">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Id
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Nombre
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Descripción
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Acciones
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let catego of category"
+                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{ catego.id }}
+                        </th>
+                        <td class="px-6 py-4">
+                            {{ catego.name }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ catego.description }}
+                        </td>
+
+                        <td class="px-3 py-2">
+                            <div class="flex items-center justify-end gap-2">
+                                <a [routerLink]="['/category/update', catego.id]"
+                                    class="inline-flex items-center px-3 py-1.5 text-sm rounded-lg border border-indigo-200 text-indigo-700 hover:bg-indigo-50">
+                                  <i class="fa-solid fa-trash"></i>  Editar
+                                </a>
+
+                                <button type="button" [routerLink]="['/category/delete', catego.id]"
+                                    class="inline-flex items-center px-3 py-1.5 text-sm rounded-lg border border-red-200 text-red-700 hover:bg-red-50">
+                                  <i class="fa-solid fa-trash"></i>   Eliminar
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
 </div>
