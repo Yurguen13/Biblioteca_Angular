@@ -1,27 +1,48 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { Classification } from '../../../interfaces/classification.module';
+import { Router, RouterLink, RouterModule } from '@angular/router';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ClassificationService } from '../../../services/classification/classification.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-classification-create',
-  imports: [RouterLink],
+  imports: [ CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './classification-create.component.html',
   styleUrl: './classification-create.component.css'
 })
 export class ClassificationCreateComponent {
-classification:Classification[] = [];
+  classificationForm!:FormGroup;
 
-constructor(private classificationService: ClassificationService){}
+  constructor(
+    private readonly classificationService: ClassificationService,
+    private readonly formBuilder:FormBuilder,
+    private readonly router: Router,
+  ){}
 
-ngOnInit():void{
-  this.loadData();
-}
+  ngOnInit():void{
+    this.classificationForm= this.formBuilder.group({
+      name:['',[Validators.required, Validators.minLength(15)]],
+      description:['',Validators.required, Validators.minLength(25)],
+      code:['',Validators.required, Validators.minLength(5)]
+    });
+  }
 
-loadData():void{
-  this.classificationService.getClassifications().subscribe(data=>{
-this.classification = data;
-console.log(data);
-  });
-}
+  sendForm(){
+    this.classificationForm.markAllAsTouched();
+
+    if(this.classificationForm.invalid){
+      return;
+    }
+
+    const classificationData=this.classificationForm.value;
+
+    this.classificationService.postClassification(classificationData).subscribe({
+      next:response =>{
+        this.router.navigate(['/classifications']);
+      },
+      error:err=>{
+        console.log("Error al crear la classificacion", err);
+      }
+    });
+  }
 }
