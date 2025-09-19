@@ -32,9 +32,6 @@ export class CategoryComponent {
     });
   }
 
-  deleteCategory(id:number):void 
-  {
-
-  }
+ 
 
 }

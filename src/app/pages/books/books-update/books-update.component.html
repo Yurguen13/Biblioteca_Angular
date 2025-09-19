@@ -1,0 +1,115 @@
+<div class="px-5 py-4 border-b border-gray-200 flex items-center justify-between">
+    <h2 class="text-lg font-semibold text-gray-800">Editar Libros</h2>
+    <!-- Acciones opcionales -->
+
+</div>
+<form class="max-w-3xl mx-auto" [formGroup]="booksForm" (ngSubmit)="updateBoook()">
+    <!-- GRID -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- Nombre -->
+        <div>
+            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                Nombre
+            </label>
+            <input type="text" id="name" formControlName="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+               focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+               dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
+               dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+            <div *ngIf="booksForm.get('name')?.invalid && booksForm.get('name')?.touched">
+                <small *ngIf="booksForm.get('name')?.errors?.['required']" class="text-red-500">
+                    El nombre es obligatorio.
+                </small>
+            </div>
+        </div>
+
+        <!-- Apellidos -->
+        <div>
+            <label for="language" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                Idioma
+            </label>
+            <input type="text" id="language " formControlName="language" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+               focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+               dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
+               dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+            <div *ngIf="booksForm.get('language')?.invalid && booksForm.get('language')?.touched">
+                <small *ngIf="booksForm.get('language')?.errors?.['required']" class="text-red-500">
+                    El año es obligatorio
+                </small>
+            </div>
+        </div>
+
+
+        <div>
+            <label for="year" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                Año
+            </label>
+            <input type="number" id="year" formControlName="year" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+               focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+               dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
+               dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+            <div *ngIf="booksForm.get('year')?.invalid && booksForm.get('year')?.touched">
+                <small *ngIf="booksForm.get('year')?.errors?.['required']" class="text-red-500">
+                    El año es obligatorio
+                </small>
+            </div>
+        </div>
+
+        <!-- Apellidos -->
+        <div>
+            <label for="publisherId" class="block font-semibold">Editorial:</label>
+            <select id="publisherId" formControlName="publisherId" class="border p-2 w-full">
+                <option value="" disabled selected>Seleccione una Editorial/option
+                <option *ngFor="let edito of classification" [value]="edito.id">
+                    {{ edito.name }}
+                </option>
+            </select>
+            <div *ngIf="booksForm.get('publisherId')?.invalid && booksForm.get('publisherId')?.touched">
+                <small *ngIf="booksForm.get('publisherId')?.errors?.['publisherId']" class="text-red-500">Debe
+                    seleccionar una editorial.</small>
+            </div>
+        </div>
+         <div>
+            <label for="classificationId" class="block font-semibold">Clasificacion</label>
+            <select id="classificationId" formControlName="classificationId" class="border p-2 w-full">
+                <option value="" disabled selected>Seleccione una Clasificacion 
+                <option *ngFor="let class of classification" [value]="class.id">
+                    {{ class.name }}
+                </option>
+            </select>
+            <div *ngIf="booksForm.get('classificationId')?.invalid && booksForm.get('classificationId')?.touched">
+                <small *ngIf="booksForm.get('classificationId')?.errors?.['classificationId']" class="text-red-500">Debe
+                    seleccionar una Clasificacion</small>
+            </div>
+        </div>
+
+        <div>
+            <label for="file" class="block font-semibold">Imagen:</label>
+            <img
+    class="h-24 w-24 object-contain rounded"
+    [src]="imageUrl"
+    [alt]="image"
+  
+    
+  />
+        </div>
+
+
+
+
+        <!-- Si más campos, agrégalos como <div> dentro del grid -->
+    </div>
+
+    <!-- ACCIONES -->
+    <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-end">
+        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none
+             focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5
+             dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Enviar
+        </button>
+
+        <button type="button" routerLink="/author" class="text-white bg-gray-600 hover:bg-gray-700 focus:ring-4 focus:outline-none
+             focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5">
+            Cerrar
+        </button>
+    </div>
+</form>

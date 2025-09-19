@@ -1,0 +1,89 @@
+<div class="max-w-6xl mx-auto bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+
+    <div class="px-5 py-4 border-b border-gray-200 flex items-center justify-between">
+        <h2 class="text-lg font-semibold text-gray-800">Listado</h2>
+        <!-- Acciones opcionales -->
+        <div class="flex gap-2">
+            <button routerLink="/author/create" class="px-3 py-2 text-sm rounded-lg border border-gray-300 hover:bg-gray-50" > <i class="fa-solid fa-plus"></i> Nuevo
+                Author</button>
+        </div>
+    </div>
+
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+
+        <div class="p-5 overflow-x-auto">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Id
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Nombre
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Apellidos
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Email
+                        </th>
+                          <th scope="col" class="px-6 py-3">
+                            Fecha de nacimiento
+                        </th>
+                         <th scope="col" class="px-6 py-3">
+                           Telefono
+                        </th>
+                         <th scope="col" class="px-6 py-3">
+                           Status
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let autho of authors"
+                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{ autho.id }}
+                        </th>
+                        <td class="px-6 py-4">
+                            {{ autho.name }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ autho.lastName }}
+                        </td>
+                           <td class="px-6 py-4">
+                            {{ autho.email }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ autho.birthdate }}
+                        </td>
+
+                        <td class="px-6 py-4">
+                            {{ autho.phone }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ autho.active }}
+                        </td>
+
+                        <td class="px-3 py-2">
+                            <div class="flex items-center justify-end gap-2">
+                                <a [routerLink]="['/author/update', autho.id]"
+                                    class="inline-flex items-center px-3 py-1.5 text-sm rounded-lg border border-indigo-200 text-indigo-700 hover:bg-indigo-50">
+                                  <i class="fa-solid fa-trash"></i>  Editar
+                                </a>
+
+                                <button type="button" [routerLink]="['/author/delete', autho.id]"
+                                    class="inline-flex items-center px-3 py-1.5 text-sm rounded-lg border border-red-200 text-red-700 hover:bg-red-50">
+                                  <i class="fa-solid fa-trash"></i>   Eliminar
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>

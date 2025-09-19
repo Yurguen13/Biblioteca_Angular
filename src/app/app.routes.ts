@@ -11,6 +11,15 @@ import { ClassificationDeleteComponent } from './pages/classification/classifica
 import { SpecimensListComponent } from './pages/specimens/specimens-list/specimens-list.component';
 import { SpecimensCreateComponent } from './pages/specimens/specimens-create/specimens-create.component';
 
+
+import { AuthorUpdateComponent } from './pages/author/author-update/author-update.component';
+import { AuthorCreateComponent } from './pages/author/author-create/author-create.component';
+import { AuthorDeleteComponent } from './pages/author/author-delete/author-delete.component';
+import { BooksComponent } from './pages/books/books.component';
+import { BooksDeleteComponent } from './pages/books/books-delete/books-delete.component';
+import { BooksUpdateComponent } from './pages/books/books-update/books-update.component';
+import { BooksCreateComponent } from './pages/books/books-create/books-create.component';
+
 export const routes: Routes = [
 
   {
