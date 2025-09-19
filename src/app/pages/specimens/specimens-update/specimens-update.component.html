@@ -8,7 +8,7 @@
 <form class="max-w-sm mx-auto" [formGroup]="specimenForm" (ngSubmit)="updateSpecimen()">
     <div class="mb-5">
         <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Precio</label>
-        <input type="text" id="price" formControlName="price"
+        <input type="number" id="price" formControlName="price"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
              />
         <div *ngIf="specimenForm.get('price')?.invalid && specimenForm.get('price')?.touched">
@@ -30,7 +30,7 @@
     </div>
       <div class="mb-5">
         <label for="observation"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Condicion</label>
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Observaciones</label>
         <input type="text" id="observation" formControlName="observation"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
              />
@@ -38,6 +38,17 @@
             <small *ngIf="specimenForm.get('observation')?.errors?.['required']" class="text-red-500">la observacion es obligatoria.</small>
 
         </div>
+    </div>
+
+     <label for="books" class="block font-semibold">Marca:</label>
+    <select id="books" formControlName="bookId" class="border p-2 w-full">
+      <option value="" disabled selected>Seleccione una marca</option>
+      <option *ngFor="let book of books" [value]="book.id">
+        {{ book.name }}
+      </option>
+    </select>
+    <div *ngIf="specimenForm.get('bookId')?.invalid && specimenForm.get('bookId')?.touched">
+      <small *ngIf="specimenForm.get('bookId')?.errors?.['required']" class="text-red-500">Debe seleccionar una marca.</small>
     </div>
 
       <div class="mt-4 flex flex-col sm:flex-row gap-3 justify-end">

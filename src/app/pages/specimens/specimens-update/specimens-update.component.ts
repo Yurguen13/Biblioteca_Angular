@@ -30,10 +30,10 @@ export class SpecimensUpdateComponent {
     ngOnInit():void{
       this.specimenId=Number(this.route.snapshot.paramMap.get('id'));
       this.specimenForm = this.fb.group({
-        pice:['',[Validators.required, Validators.min(50)]],
+        price:['',[Validators.required, Validators.min(50)]],
         condition:['',[Validators.required, Validators.minLength(1)]],
         observation:['',[Validators.required, Validators.minLength(1)]],
-        booksId:['',[Validators.required]]
+        bookId:['',[Validators.required]]
       });
 
       this.loadSpecimensData();
@@ -46,16 +46,17 @@ export class SpecimensUpdateComponent {
     loadSpecimensData(){
       this.specimenService.getById(this.specimenId).subscribe(data=>{
           this.specimenData = data;
-          this.specimenForm.setValue({
+          this.specimenForm.patchValue({
             price:data.price,
             condition:data.condition,
-            observation:data.observation,
-            booksId:data.booksId
+            observation:data.observation??'',
+            bookId:data.booksId
           });
       });
     }
 
     updateSpecimen(){
+      debugger;
       if(this.specimenForm.invalid){
         //return;
       }
