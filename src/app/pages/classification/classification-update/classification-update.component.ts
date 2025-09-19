@@ -11,7 +11,7 @@ import { ClassificationService } from '../../../services/classification/classifi
   templateUrl: './classification-update.component.html',
   styleUrl: './classification-update.component.css'
 })
-class ClassificationUpdateComponent {
+export class ClassificationUpdateComponent {
   private classificationId!: number;
   classificationForm!: FormGroup;
   classificationData!: Classification;
