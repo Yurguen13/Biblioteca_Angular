@@ -9,6 +9,7 @@ import { ClassificationCreateComponent } from './pages/classification/classifica
 import { ClassificationUpdateComponent } from './pages/classification/classification-update/classification-update.component';
 import { ClassificationDeleteComponent } from './pages/classification/classification-delete/classification-delete.component';
 import { SpecimensListComponent } from './pages/specimens/specimens-list/specimens-list.component';
+import { SpecimensCreateComponent } from './pages/specimens/specimens-create/specimens-create.component';
 
 export const routes: Routes = [
 
@@ -50,6 +51,11 @@ export const routes: Routes = [
     {
   path:'specimens',
   component:SpecimensListComponent
+  }
+  ,
+    {
+  path:'specimens/create',
+  component:SpecimensCreateComponent
   }
 
 

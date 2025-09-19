@@ -1,5 +1,5 @@
 <div class="px-5 py-4 border-b border-gray-200 flex items-center justify-between">
-    <h2 class="text-lg font-semibold text-gray-800">Categoria</h2>
+    <h2 class="text-lg font-semibold text-gray-800">Especimens</h2>
     <!-- Acciones opcionales -->
 
 </div>
@@ -32,8 +32,8 @@
         <input type="text" id="condition" formControlName="condition"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
              />
-              <div *ngIf="specimenForm.get('code')?.invalid && specimenForm.get('name')?.touched">
-            <small *ngIf="specimenForm.get('code')?.errors?.['required']" class="text-red-500">La condición es necesaria</small>
+              <div *ngIf="specimenForm.get('condition')?.invalid && specimenForm.get('condition')?.touched">
+            <small *ngIf="specimenForm.get('condition')?.errors?.['required']" class="text-red-500">La condición es necesaria</small>
 
         </div>
     </div>

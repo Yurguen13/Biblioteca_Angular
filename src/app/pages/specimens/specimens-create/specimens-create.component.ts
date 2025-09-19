@@ -15,21 +15,23 @@ export class SpecimensCreateComponent {
 
   constructor(
     private readonly specimenService: SpecimensService,
-    private readonly fromBuilder: FormBuilder,
-    private readonly router:Router
+    private readonly formBuilder: FormBuilder,
+    private readonly router:Router,
+    private readonly booksService: BooksService
   ){}
 
   ngOnInit():void{
-    this.specimenForm=this.fromBuilder.group({
+    this.specimenForm=this.formBuilder.group({
       price:['',[Validators.required, Validators.min(50)]],
       booksId:['',[Validators.required]],
       condition:['',[Validators.required, Validators.minLength(30)]],
-      observation: ['', [Validators.minLength(5)]]
+      observation: ['', [Validators.minLength(1)]]
     });
 
   }
 
   sendForm(){
+    debugger;
     this.specimenForm.markAllAsTouched();
 
     if(this.specimenForm.invalid){
