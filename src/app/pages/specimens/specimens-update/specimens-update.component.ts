@@ -28,12 +28,13 @@ export class SpecimensUpdateComponent {
     ){}
 
     ngOnInit():void{
+      debugger;
       this.specimenId=Number(this.route.snapshot.paramMap.get('id'));
       this.specimenForm = this.fb.group({
         price:['',[Validators.required, Validators.min(50)]],
         condition:['',[Validators.required, Validators.minLength(1)]],
-        observation:['',[Validators.required, Validators.minLength(1)]],
-        bookId:['',[Validators.required]]
+        observations:['',[Validators.required, Validators.minLength(1)]],
+        booksId:['',[Validators.required]]
       });
 
       this.loadSpecimensData();
@@ -49,8 +50,8 @@ export class SpecimensUpdateComponent {
           this.specimenForm.patchValue({
             price:data.price,
             condition:data.condition,
-            observation:data.observation??'',
-            bookId:data.booksId
+            observations:data.observations??'',
+            booksId:data.booksId
           });
       });
     }

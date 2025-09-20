@@ -40,7 +40,7 @@ publisherForm!:FormGroup;
 
     this.publisherService.postPublishers(publisherData).subscribe({
       next:response =>{
-        this.router.navigate(['/classifications']);
+        this.router.navigate(['/publishers']);
       },
       error:err=>{
         console.log("Error al crear la editorial", err);

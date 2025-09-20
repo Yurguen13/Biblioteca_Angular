@@ -37,12 +37,13 @@ constructor(
     deleteClassification(){
     this.publisherService.deletePublishers(this.publisherId).subscribe({
       next:()=>{
-        this.snackBar.open('Clasificacion eliminada con exito','Cerrar',{
+        this.snackBar.open('Editorial eliminada con exito','Cerrar',{
           duration:3000,
           horizontalPosition: 'center',
             verticalPosition: 'top',
           panelClass: ['snack-bar-success']
         });
+          this.router.navigate(['/publishers']);
       } 
     });
   }

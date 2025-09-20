@@ -3,5 +3,6 @@ export interface Specimens{
     price:number;
     booksId:number;
     condition:string;
-    observation:string;
+    observations:string;
+    books:string;
 }

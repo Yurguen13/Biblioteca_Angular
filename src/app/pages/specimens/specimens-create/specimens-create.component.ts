@@ -27,7 +27,7 @@ export class SpecimensCreateComponent {
     this.specimenForm=this.formBuilder.group({
       price:['',[Validators.required, Validators.min(50)]],
       condition:['',[Validators.required, Validators.minLength(1)]],
-      observation: ['', [Validators.required, Validators.minLength(1)]],
+      observations: ['', [Validators.required, Validators.minLength(1)]],
       booksId:['',[Validators.required]],
     });
 

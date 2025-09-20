@@ -46,5 +46,7 @@ export class ClassificationDeleteComponent {
         });
       } 
     });
+
+      this.router.navigate(['/classifications']);
   }
 }

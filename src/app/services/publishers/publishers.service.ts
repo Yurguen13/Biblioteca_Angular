@@ -20,6 +20,8 @@ constructor(private http:HttpClient){}
   }
 
   public postPublishers(publisher:Publishers): Observable<Publishers>{
+
+   
     return this.http.post<Publishers>(environment.api.publishers, publisher);
   }
 

@@ -20,6 +20,8 @@ export class SpecimensService {
   }
 
   public postSpecimen(specimen:Specimens):Observable<Specimens>{
+     console.log("datos");
+    console.log(specimen);
     return this.http.post<Specimens>(environment.api.specimens, specimen);
   }
 

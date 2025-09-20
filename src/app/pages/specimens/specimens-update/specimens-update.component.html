@@ -29,26 +29,26 @@
         </div>
     </div>
       <div class="mb-5">
-        <label for="observation"
+        <label for="observations"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Observaciones</label>
-        <input type="text" id="observation" formControlName="observation"
+        <input type="text" id="observations" formControlName="observations"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
              />
-              <div *ngIf="specimenForm.get('observation')?.invalid && specimenForm.get('observation')?.touched">
-            <small *ngIf="specimenForm.get('observation')?.errors?.['required']" class="text-red-500">la observacion es obligatoria.</small>
+              <div *ngIf="specimenForm.get('observations')?.invalid && specimenForm.get('observations')?.touched">
+            <small *ngIf="specimenForm.get('observations')?.errors?.['required']" class="text-red-500">la observacion es obligatoria.</small>
 
         </div>
     </div>
 
-     <label for="books" class="block font-semibold">Marca:</label>
-    <select id="books" formControlName="bookId" class="border p-2 w-full">
-      <option value="" disabled selected>Seleccione una marca</option>
+     <label for="booksId" class="block font-semibold">Libro:</label>
+    <select id="booksId" formControlName="booksId" class="border p-2 w-full">
+      <option value="" disabled selected>Seleccione una Libro</option>
       <option *ngFor="let book of books" [value]="book.id">
         {{ book.name }}
       </option>
     </select>
-    <div *ngIf="specimenForm.get('bookId')?.invalid && specimenForm.get('bookId')?.touched">
-      <small *ngIf="specimenForm.get('bookId')?.errors?.['required']" class="text-red-500">Debe seleccionar una marca.</small>
+    <div *ngIf="specimenForm.get('booksId')?.invalid && specimenForm.get('booksId')?.touched">
+      <small *ngIf="specimenForm.get('booksId')?.errors?.['required']" class="text-red-500">Debe seleccionar una marca.</small>
     </div>
 
       <div class="mt-4 flex flex-col sm:flex-row gap-3 justify-end">
